@@ -1,0 +1,44 @@
+GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/tweets
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Katy Perry", 
+  "user_name": "KP_AllDay", 
+  "bio":  "California Girl Living Her Best Life",
+  "location" : "California"
+}
+
+###
+POST http://localhost:3000/tweets
+Content-Type: application/json
+
+{
+  "text" : "East coast girls are hip"
+}
+
+###
+GET http://localhost:3000/users/2
+###
+GET http://localhost:3000/tweets/3
+
+###
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "name" : "Danielle Doe"
+}
+
+###
+DELETE http://localhost:3000/users/1
+
+###
+DELETE http://localhost:3000/tweets/1
+
