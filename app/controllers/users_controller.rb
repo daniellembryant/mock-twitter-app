@@ -11,8 +11,11 @@ class UsersController < ApplicationController
     bio: params[bio],
     location: params[:location]
   )
-    user.save
-    render json: user 
+    if user.save
+      render json: user
+    else
+      render json: user.errors.full_messages, status: :unprocessable_entity
+    end 
   end
 
   def show
@@ -26,8 +29,12 @@ class UsersController < ApplicationController
     user.user_name = params[:user_name] || user.user_name
     user.bio = params[:bio] || user.bio
     user.location = params[:location] || user.location
-    user.save
-    render json: user
+    if user.save
+      render json: user
+    else
+      render json: user.errors.full_messages, status: :unprocessable_entity
+    end
+
   end
 
   def destroy

@@ -10,8 +10,11 @@ class TweetsController < ApplicationController
     tweet = Tweet.new(
       text: params[:text]
     )
-    tweet.save
-    render json: tweet
+    if tweet.save
+      render json: tweet
+    else
+      render json: user.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def show
